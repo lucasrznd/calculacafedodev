@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <title>CalculaCafédoDev | Gerencie seu Consumo de Café</title>
+    <meta name="author" content="Lucas Rezende">
+    <meta name="description"
+        content="Calculadora de Café do Dev - Saiba exatamente quanto você gasta com café. Calcule o preço diário e mensal com base no seu consumo, tamanho do copo e número de pessoas.">
+    <meta name="keywords" content="calculadora de café, café para desenvolvedores, café programador, orçamento de café">
+    <meta name="robots" content="index, follow">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="CalculaCafédoDev">
+    <meta property="og:description"
+        content="Calcule precisamente quanto você gasta com café por dia e por mês. Ferramenta ideal para desenvolvedores!">
+    <meta property="og:type" content="website">
+
+    <!-- FontAwesome -->
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.ico" />
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="src/css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img id="nav-logo" src="src/img/logo.png" alt="Logo CalculaCafé do Dev">
+                <span>CalculaCafédoDev</span>
+            </div>
+            <p>Gerencie seus custos de café e otimize seu orçamento para o combustível essencial da programação!</p>
+        </div>
+    </header>
+
+    <div class="page-wrapper">
+        <!-- Anúncios na lateral esquerda (fixos) -->
+        <aside class="ad-sidebar ad-sidebar-left">
+            <div class="ad-container">
+                <div class="ad-unit ad-skyscraper">
+                    <div class="ad-placeholder">
+                        <!-- Substituir pelo código do anúncio real -->
+                        <div class="ad-label">Publicidade</div>
+                        <div class="ad-content">
+                            <!-- Código do anúncio aqui -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Anúncio adicional para telas maiores -->
+                <div class="ad-unit ad-square hidden-md">
+                    <div class="ad-placeholder">
+                        <div class="ad-label">Publicidade</div>
+                        <div class="ad-content">
+                            <!-- Código do anúncio aqui -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- Conteúdo principal do site (mantido como está) -->
+        <div class="main-content">
+            <div class="calculator-container">
+                <form id="coffeeCalculator">
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="currentPrice">Preço Atual do Café (R$):</label>
+                            <div class="input-group">
+                                <i class="fas fa-tag input-icon"></i>
+                                <input type="number" id="currentPrice" placeholder="Ex: 25,90" step="0.01" min="0"
+                                    required />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="coffeeSize">Tamanho do Pacote de Café (em g):</label>
+                            <div class="input-group">
+                                <i class="fas fa-weight input-icon"></i>
+                                <input type="number" id="coffeeSize" placeholder="Ex: 500" min="0" required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group custom-select-container">
+                            <label for="cupSize">Tamanho do Copo (em ml):</label>
+                            <div class="custom-select">
+                                <select name="cupSize" id="cupSize" required>
+                                    <option value="">Selecione o tamanho</option>
+                                    <option value="50">Xícara Pequena (50ml)</option>
+                                    <option value="100">Xícara Média (100ml)</option>
+                                    <option value="200">Xícara Grande (200ml)</option>
+                                    <option value="300">Caneca Pequena (300ml)</option>
+                                    <option value="400">Caneca Grande (400ml)</option>
+                                </select>
+                                <div class="select-icon">
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="bottleSize">Capacidade da Garrafa/Cafeteira (em ml):</label>
+                            <div class="input-group">
+                                <i class="fas fa-flask input-icon"></i>
+                                <input type="number" id="bottleSize" placeholder="Ex: 1000" min="0" required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="grid-2">
+                        <div class="form-group">
+                            <label for="amountMadePerDay">Garrafas preparadas por dia:</label>
+                            <div class="input-group">
+                                <i class="fas fa-coffee input-icon"></i>
+                                <input type="number" id="amountMadePerDay" placeholder="Ex: 2" min="0" required />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="consumersAmount">Quantidade de Consumidores:</label>
+                            <div class="input-group">
+                                <i class="fas fa-users input-icon"></i>
+                                <input type="number" id="consumersAmount" placeholder="Ex: 2" min="1" required />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <button id="calculateBtn" type="button"
+                            style="background-color: var(--color-primary); color: white; border: none; padding: 0.8rem 1.5rem; border-radius: var(--radius); cursor: pointer; font-weight: 600; width: 100%; transition: var(--transition);">
+                            <i class="fas fa-calculator"></i> Calcular Custos
+                        </button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="results-container" id="resultsContainer" style="display: none;">
+                <h2 class="results-title">Resultados da Calculadora</h2>
+
+                <div class="result-item">
+                    <span>Quantidade de café por garrafa:</span>
+                    <span class="result-value" id="coffeePerBottle">0g</span>
+                </div>
+
+                <div class="result-item">
+                    <span>Custo por garrafa:</span>
+                    <span class="result-value" id="costPerBottle">R$ 0,00</span>
+                </div>
+
+                <div class="result-item">
+                    <span>Custo por xícara/copo:</span>
+                    <span class="result-value" id="costPerCup">R$ 0,00</span>
+                </div>
+
+                <div class="result-item">
+                    <span>Custo diário por pessoa:</span>
+                    <span class="result-value" id="costPerPersonDaily">R$ 0,00</span>
+                </div>
+
+                <div class="result-item">
+                    <span>Custo mensal por pessoa:</span>
+                    <span class="result-value" id="costPerPersonMonthly">R$ 0,00</span>
+                </div>
+
+                <div class="result-item">
+                    <span>Total diário (todos consumidores):</span>
+                    <span class="result-value" id="totalCostDaily">R$ 0,00</span>
+                </div>
+
+                <div class="result-item">
+                    <span>Total mensal (todos consumidores):</span>
+                    <span class="total-value" id="totalCostMonthly">R$ 0,00</span>
+                </div>
+            </div>
+
+            <div class="info-card">
+                <h3><i class="fas fa-info-circle"></i> Dicas para um Café Econômico e Produtivo</h3>
+                <p>Bons hábitos de consumo de café podem economizar dinheiro e aumentar sua produtividade:</p>
+                <ul>
+                    <li>Use 15-20g de café para cada 250ml de água para o equilíbrio perfeito</li>
+                    <li>Comprar café em grãos e moer na hora preserva melhor o sabor</li>
+                    <li>Invista em uma garrafa térmica de qualidade para manter o café quente por mais tempo</li>
+                    <li>Estabeleça horários para o consumo de café para maximizar o efeito da cafeína</li>
+                </ul>
+                <div class="highlight">
+                    <p>💡 <strong>Dica profissional:</strong> Considere comprar café em maior quantidade para obter
+                        descontos. Guarde em recipientes herméticos para preservar a qualidade.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Anúncios na lateral direita (fixos) -->
+        <aside class="ad-sidebar ad-sidebar-right">
+            <div class="ad-container">
+                <div class="ad-unit ad-skyscraper">
+                    <div class="ad-placeholder">
+                        <div class="ad-label">Publicidade</div>
+                        <div class="ad-content">
+                            <!-- Código do anúncio aqui -->
+                        </div>
+                    </div>
+                </div>
+                <!-- Banner adicional para telas grandes -->
+                <div class="ad-unit ad-square hidden-md">
+                    <div class="ad-placeholder">
+                        <div class="ad-label">Publicidade</div>
+                        <div class="ad-content">
+                            <!-- Código do anúncio aqui -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Anúncios responsivos para dispositivos móveis (visíveis apenas em mobile) -->
+    <div class="mobile-ads">
+        <div class="ad-unit ad-mobile">
+            <div class="ad-placeholder">
+                <div class="ad-label">Publicidade</div>
+                <div class="ad-content">
+                    <!-- Código do anúncio aqui -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 CalculaCafé do Dev | Todas as ferramentas que um dev precisa para o seu café</p>
+            <p>Desenvolvido com <i class="fas fa-heart" style="color: var(--color-accent);"></i> e muito café</p>
+        </div>
+    </footer>
+
+    <script type="module" src="src/js/script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,475 @@
+:root {
+    --color-primary: #432818;
+    --color-secondary: #8c6c5b;
+    --color-accent: #c89f94;
+    --color-light: #f5f0e8;
+    --color-dark: #2a180e;
+    --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.12);
+    --radius: 8px;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    line-height: 1.6;
+    padding: 0;
+}
+
+.page-wrapper {
+    display: flex;
+    width: 100%;
+    max-width: 1800px; /* Aumentado para acomodar anúncios laterais */
+    margin: 0 auto;
+    position: relative;
+}
+
+/* Conteúdo principal */
+.main-content {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+    flex: 1 1 auto;
+}
+
+/* Estilo das barras laterais de anúncios */
+.ad-sidebar {
+    width: 160px; /* Tamanho padrão para anúncios sky */
+    height: 100%;
+    position: sticky;
+    top: 20px; /* Fixa o anúncio ao rolar a página */
+    padding: 0 10px;
+}
+
+/* Contêiner de anúncios */
+.ad-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Unidades de anúncio */
+.ad-unit {
+    width: 100%;
+    background-color: transparent;
+    overflow: hidden;
+}
+
+/* Estilos específicos por formato */
+.ad-skyscraper {
+    min-height: 600px;
+    /* Formato padrão sky */
+}
+
+.ad-square {
+    min-height: 250px;
+    /* Formato médio retangular */
+    margin-top: 20px;
+}
+
+.ad-mobile {
+    min-height: 100px;
+    margin: 20px auto;
+    max-width: 320px;
+}
+
+/* Placeholder para visualização (remover na implementação final) */
+.ad-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: inherit;
+    border: 1px dashed rgba(0, 0, 0, 0.1);
+    background-color: rgba(245, 240, 232, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+}
+
+/* Etiqueta para indicar anúncio */
+.ad-label {
+    font-size: 11px;
+    text-transform: uppercase;
+    color: #8c6c5b;
+    opacity: 0.7;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+/* Conteúdo do anúncio */
+.ad-content {
+    width: 100%;
+    height: 90%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: #8c6c5b;
+}
+
+/* Anúncios para mobile (visíveis apenas em dispositivos pequenos) */
+.mobile-ads {
+    display: none;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    border-bottom: 4px solid var(--color-secondary);
+}
+
+header .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.logo {
+    font-size: 2.2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo img {
+    height: 60px;
+    /* Altura fixa para manter proporcionalidade com o texto */
+    width: auto;
+    /* Largura automática para manter a proporção */
+    object-fit: contain;
+    /* Garante que a imagem seja exibida completamente */
+    vertical-align: middle;
+    filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.2));
+    /* Sombra sutil para destacar */
+}
+
+.logo span {
+    display: inline-block;
+    vertical-align: middle;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    /* Sombra no texto para melhorar legibilidade */
+}
+
+header p {
+    max-width: 600px;
+    opacity: 0.9;
+}
+
+main {
+    padding: 3rem 0;
+}
+
+.calculator-container {
+    background-color: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    padding: 2rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.custom-select-container {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+
+.custom-select {
+    position: relative;
+    width: 100%;
+}
+
+.custom-select select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    border: 1px solid rgba(140, 108, 91, 0.3);
+    border-radius: 0.5rem;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    background-color: white;
+    color: #432818;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    font-weight: 500;
+}
+
+.custom-select select:hover {
+    border-color: #8c6c5b;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.custom-select select:focus {
+    outline: none;
+    border-color: #8c6c5b;
+    box-shadow: 0 0 0 2px rgba(140, 108, 91, 0.2);
+}
+
+.custom-select .select-icon {
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #8c6c5b;
+    transition: transform 0.2s ease;
+}
+
+.custom-select select:focus+.select-icon {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+/* Estilizando as opções (compatível com navegadores modernos) */
+.custom-select select option {
+    padding: 0.75rem;
+    background-color: white;
+    color: #432818;
+}
+
+/* Estilo hover/focus para as opções (suporte parcial) */
+.custom-select select option:hover,
+.custom-select select option:focus {
+    background-color: rgba(140, 108, 91, 0.1);
+}
+
+/* Animação sutil na abertura (suporte específico) */
+.custom-select select:focus {
+    animation: selectExpand 0.2s ease-in-out;
+}
+
+@keyframes selectExpand {
+    0% {
+        transform: scale(0.99);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Estilo adicional para dropdown aberto (compatível com alguns navegadores) */
+.custom-select select:focus option {
+    padding: 0.75rem;
+    border-bottom: 1px solid rgba(140, 108, 91, 0.1);
+}
+
+/* Personalização avançada para dropdown */
+@media (hover: hover) {
+    .custom-select select:hover {
+        background-color: rgba(245, 240, 232, 0.5);
+    }
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+    color: var(--color-primary);
+}
+
+input,
+select {
+    width: 100%;
+    padding: 0.8rem;
+    border: 1px solid #ddd;
+    border-radius: var(--radius);
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: var(--color-secondary);
+    box-shadow: 0 0 0 2px rgba(140, 108, 91, 0.2);
+}
+
+.input-group {
+    position: relative;
+}
+
+.input-group input {
+    padding-left: 2.5rem;
+}
+
+.input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-secondary);
+}
+
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 768px) {
+    .grid-2 {
+        grid-template-columns: 1fr;
+    }
+}
+
+.results-container {
+    background: linear-gradient(135deg, var(--color-primary), var(--color-dark));
+    color: white;
+    border-radius: var(--radius);
+    padding: 2rem;
+    box-shadow: var(--shadow-md);
+}
+
+.results-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    color: var(--color-accent);
+}
+
+.result-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.result-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+.result-value {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.total-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-accent);
+}
+
+.info-card {
+    background-color: white;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-md);
+    padding: 1.5rem;
+    margin-top: 2rem;
+}
+
+.info-card h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.info-card h3 i {
+    color: var(--color-secondary);
+}
+
+.info-card p {
+    color: #555;
+    margin-bottom: 1rem;
+}
+
+.info-card ul {
+    list-style-type: none;
+    margin-left: 1.5rem;
+}
+
+.info-card li {
+    margin-bottom: 0.5rem;
+    position: relative;
+}
+
+.info-card li::before {
+    content: "☕";
+    position: absolute;
+    left: -1.5rem;
+    color: var(--color-secondary);
+}
+
+footer {
+    background-color: var(--color-dark);
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+    margin-top: 3rem;
+}
+
+footer p {
+    opacity: 0.8;
+    margin-bottom: 1rem;
+}
+
+.highlight {
+    background-color: rgba(200, 159, 148, 0.15);
+    padding: 0.5rem 1rem;
+    border-radius: var(--radius);
+    margin: 1rem 0;
+    border-left: 3px solid var(--color-accent);
+}
+
+/* Responsividade */
+@media (max-width: 1200px) {
+    .hidden-md {
+        display: none;
+        /* Esconde anúncios adicionais em telas médias */
+    }
+
+    .ad-sidebar {
+        width: 160px;
+        /* Reduz para tamanho padrão sky */
+    }
+}
+
+@media (max-width: 992px) {
+    .page-wrapper {
+        flex-direction: column;
+    }
+
+    .ad-sidebar {
+        display: none;
+        /* Esconde barras laterais */
+    }
+
+    .mobile-ads {
+        display: block;
+        /* Mostra anúncios mobile */
+    }
+
+    .main-content {
+        padding: 0 15px;
+    }
+}
