@@ -1,3 +1,4 @@
+import { initAds } from "./modules/ads.js";
 import { initCoffeeCalculator } from "./modules/coffeeCalculator.js";
 import { initDropdown } from "./modules/dropdown.js";
 
@@ -5,4 +6,5 @@ import { initDropdown } from "./modules/dropdown.js";
 document.addEventListener('DOMContentLoaded', () => {
     initCoffeeCalculator();
     initDropdown();
+    initAds();
 });
