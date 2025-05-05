@@ -1,0 +1,14 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /includes/
+Disallow: /cgi-bin/
+
+# Evitar rastreamento de parâmetros de URL específicos
+Disallow: /*?utm_
+
+# Definir taxa de rastreamento para evitar sobrecarga do servidor
+Crawl-delay: 10
+
+# Local do sitemap
+Sitemap: https://calculacafedodev.com.br/sitemap.xml
